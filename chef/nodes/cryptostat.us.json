@@ -1,0 +1,10 @@
+{
+  "run_list": [
+    "role[base]",
+    "recipe[chef-nginx::production]"
+  ],
+
+  "automatic": {
+    "ipaddress": "146.185.149.237"
+  }
+}
