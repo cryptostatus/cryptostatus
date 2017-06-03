@@ -1,7 +1,4 @@
 DEPENDENCIES
-  monit
-    git: https://github.com/phlipper/chef-monit.git
-    revision: f027aea655a0ef2ea6d0b7bdde00975268a82ef9
   ncdu
   nginx
     git: https://github.com/kirillweb/nginx.git
@@ -49,8 +46,6 @@ GRAPH
     windows (>= 0.0.0)
   mingw (2.0.0)
     seven_zip (>= 0.0.0)
-  monit (1.5.4)
-    build-essential (>= 0.0.0)
   ncdu (1.0.0)
   nginx (2.8.0)
     apt (>= 0.0.0)
