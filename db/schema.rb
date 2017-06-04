@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170604090038) do
+ActiveRecord::Schema.define(version: 20170604100338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "balances", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.float "amont", null: false
+    t.float "price_per_item", null: false
+    t.float "profit_percent", null: false
+    t.integer "strategy", limit: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["strategy"], name: "index_balances_on_strategy"
+    t.index ["user_id"], name: "index_balances_on_user_id"
+  end
 
   create_table "currencies", force: :cascade do |t|
     t.integer "name", limit: 2, null: false
@@ -50,4 +62,5 @@ ActiveRecord::Schema.define(version: 20170604090038) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "balances", "users"
 end
