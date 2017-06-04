@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20170604100338) do
 
   create_table "balances", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.float "amont", null: false
+    t.float "amount", null: false
     t.float "price_per_item", null: false
     t.float "profit_percent", null: false
-    t.integer "strategy", limit: 2, null: false
+    t.integer "strategy", limit: 2, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["strategy"], name: "index_balances_on_strategy"

@@ -3,7 +3,7 @@ class CreateBalances < ActiveRecord::Migration[5.1]
     create_table :balances do |t|
       t.references :user, null: false, foreign_key: true
 
-      t.float :amont, null: false
+      t.float :amount, null: false
       t.float :price_per_item, null: false
       t.float :profit_percent, null: false
 
