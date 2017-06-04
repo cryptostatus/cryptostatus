@@ -1,4 +1,6 @@
 class Balance < ApplicationRecord
+  include Currencies
+
   enum strategy: {
     seller: 0,
     buyer: 1

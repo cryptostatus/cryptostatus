@@ -1,7 +1,5 @@
 class Currency < ApplicationRecord
-  enum name: {
-    BTC: 0
-  }
+  include Currencies
 
   scope :last_by_time, -> { order(:created_at).last }
 end
