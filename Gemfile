@@ -21,8 +21,12 @@ gem 'devise_token_auth', '~> 0.1.42'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'byebug', platform: :mri
+  gem 'pry-rails'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
 end
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -34,4 +38,11 @@ group :development do
   gem 'capistrano-bundler', '1.1.4', require: false
   gem 'rvm1-capistrano3', '1.4.0', require: false
   gem 'letter_opener_web', '~> 1.3', '>= 1.3.1'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'wisper-rspec', require: false
 end
