@@ -5,19 +5,19 @@ describe Balance, type: :model do
 
       let(:user) { create(:user) }
 
-      context '' do
+      context do
         before { create(:balance, notified_at: nil, user: user) }
 
         it { is_expected.to be_present }
       end
 
-      context '' do
+      context do
         before { create(:balance, notified_at: 24.minutes.ago, user: user) }
 
         it { is_expected.to be_empty }
       end
 
-      context '' do
+      context do
         before { create(:balance, notified_at: 26.minutes.ago, user: user) }
 
         it { is_expected.to be_present }
