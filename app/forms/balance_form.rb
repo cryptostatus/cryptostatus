@@ -9,4 +9,15 @@ class BalanceForm < Rectify::Form
     attribute name, Float
     validates name, presence: true
   end
+
+  def attributes
+    super.except(:invested)
+  end
+
+  private
+
+  def before_validation
+    self.price_per_item = invested / amount
+    self.profit_percent = profit_percent / 100
+  end
 end

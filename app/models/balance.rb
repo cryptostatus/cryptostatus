@@ -4,18 +4,11 @@ class Balance < ApplicationRecord
     buyer: 1
   }
 
-  attr_accessor :invested
-
   belongs_to :user
 
   validates :user, :amount, :price_per_item, :profit_percent, :strategy,
-            :invested, presence: true
+            presence: true
 
-  before_validation :set_price_per_item
-
-  private
-
-  def set_price_per_item
-    self.price_per_item = invested / amount
-  end
+  validates :profit_percent, numericality: { greater_thanor_equal_to: 0.001,
+                                           less_than_or_equal_to: 1 }
 end
