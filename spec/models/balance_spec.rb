@@ -1,7 +1,7 @@
 describe Balance, type: :model do
   describe 'Scopes' do
-    describe 'notifiable' do
-      subject { described_class.notifiable }
+    describe 'should_be_notified' do
+      subject { described_class.should_be_notified }
 
       let(:user) { create(:user) }
 

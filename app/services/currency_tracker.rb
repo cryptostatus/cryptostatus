@@ -1,7 +1,7 @@
-class CurrencyTracker
+class CurrencyTracker < Rectify::Command
   def call
-    Currency.names.keys.each do |type|
-      Currency.create(name: type, price: prices[type].last)
+    Currency.names.keys.each do |name|
+      Currency.create(name: name, price: prices[name].last)
     end
   end
 
