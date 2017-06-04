@@ -8,9 +8,11 @@ set :deploy_via, :copy
 set :keep_releases, 2
 
 set :log_level, :debug
-set :pty, true
+set :pty, false
 
 set :rvm1_ruby_version, 'ruby-2.3.4'
+set :rvm1_map_bins, %w(rake gem bundle ruby rails sidekiq sidekiqctl whenever)
+
 set :rvm_type, :user
 set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 
