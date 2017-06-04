@@ -2,6 +2,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 15
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
 
 development:
   <<: *default
@@ -14,5 +16,3 @@ test:
 production:
   <<: *default
   database: cryptostatus_production
-  username: <%= ENV['PG_USERNAME'] %>
-  password: <%= ENV['PG_PASSWORD'] %>
