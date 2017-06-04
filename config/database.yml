@@ -2,8 +2,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 15
-  username: <%= ENV['PG_USERNAME'] %>
-  password: <%= ENV['PG_PASSWORD'] %>
+  username: <%= ENV.fetch('PG_USERNAME') %>
+  password: <%= ENV.fetch('PG_PASSWORD') %>
 
 development:
   <<: *default
