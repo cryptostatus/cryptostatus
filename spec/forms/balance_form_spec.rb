@@ -10,24 +10,22 @@ describe BalanceForm, type: :form do
     }
   end
 
-  context 'Before validation' do
-    before do
-      @form = BalanceForm.from_params(params)
-    end
+  subject { BalanceForm.from_params(params) }
 
+  context 'Before validation' do
     it 'set price_per_item' do
-      expect { @form.valid? }.to change(@form, :price_per_item).from(nil).to(100)
+      expect { subject.valid? }.to change(subject, :price_per_item).from(nil).to(100)
     end
 
     it 'update profit_percent' do
-      expect { @form.valid? }.to change(@form, :profit_percent).from(20).to(0.2)
+      expect { subject.valid? }.to change(subject, :profit_percent).from(20).to(0.2)
     end
   end
 
   it '#attributes' do
-    form = BalanceForm.from_params(params)
-    form.valid?
-    expect(form.attributes.keys).not_to include(:invested)
-    expect(form.attributes[:price_per_item]).to eq(100)
+    subject.valid?
+
+    expect(subject.attributes.keys).not_to include(:invested)
+    expect(subject.attributes[:price_per_item]).to eq(100)
   end
 end

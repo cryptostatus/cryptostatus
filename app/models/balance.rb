@@ -12,8 +12,10 @@ class Balance < ApplicationRecord
   validates :user, :amount, :price_per_item, :profit_percent, :strategy,
             presence: true
 
-  validates :profit_percent, numericality: { greater_thanor_equal_to: 0.001,
-                                           less_than_or_equal_to: 1 }
+  validates :profit_percent, numericality: {
+    greater_thanor_equal_to: 0.01,
+    less_than_or_equal_to: 1
+  }
 
   def notify!
     update!(:notified_at, Time.zone.now)
