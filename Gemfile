@@ -13,6 +13,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'dotenv-rails', '~> 2.2'
+gem 'sidekiq', '~> 5.0'
+gem 'lionshare', '~> 0.1.0'
+gem 'rectify', '~> 0.9.1'
+gem 'whenever', '~> 0.9.7', require: false
 
 group :development, :test do
   gem 'byebug'
