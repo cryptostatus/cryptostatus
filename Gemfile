@@ -23,7 +23,10 @@ gem 'sidekiq', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'whenever', '~> 0.9.7', require: false
-gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-cors', require: 'rack/cors'
+gem 'responders', '~> 2.4'
+gem 'cancancan', '~> 2.0'
+gem 'operators-serializer', '~> 0.2.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
