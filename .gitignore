@@ -16,3 +16,5 @@
 .env.production
 
 .ruby-gemset
+
+spec/examples.txt

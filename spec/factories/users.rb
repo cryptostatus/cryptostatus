@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :user do
     after(:build, &:skip_confirmation_notification!)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Balance < ApplicationRecord
   include Currencies
 
@@ -8,7 +10,7 @@ class Balance < ApplicationRecord
 
   belongs_to :user
 
-  scope :profitable, -> (actual) { where('price_per_item * (1 + profit_percent) <= ?', actual) }
+  scope :profitable, ->(actual) { where('price_per_item * (1 + profit_percent) <= ?', actual) }
   scope :should_be_notified, -> { where('notified_at IS NULL OR notified_at < ?', 25.minutes.ago) }
 
   validates :user, :amount, :price_per_item, :profit_percent, :strategy,

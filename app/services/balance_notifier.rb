@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class BalanceNotifier < Rectify::Command
-  def initialize(balance, currency)
+  def initialize(balance)
     @balance = balance
-    @currency = currency
   end
 
   def call
