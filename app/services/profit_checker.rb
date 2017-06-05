@@ -3,7 +3,7 @@
 class ProfitChecker < Rectify::Command
   def call
     Currency.names.keys.each do |name|
-      currency = Currency.public_send(name).last_by_time
+      currency = Currency.public_send(name).order(:created_at).last
 
       next unless currency
 
@@ -11,7 +11,7 @@ class ProfitChecker < Rectify::Command
              .profitable(currency.price)
              .should_be_notified.each do |balance|
 
-        BalanceNotifier.call(balance, currency)
+        BalanceNotifier.call(balance)
       end
     end
   end
