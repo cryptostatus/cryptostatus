@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Balance, type: :model do
+RSpec.describe Balance, type: :model do
   describe 'Scopes' do
     describe 'should_be_notified' do
       subject { described_class.should_be_notified }
