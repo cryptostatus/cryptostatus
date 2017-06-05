@@ -1,0 +1,7 @@
+machine:
+  ruby:
+    version: 2.4.1
+  environment:
+    DOMAIN: http://localhost:3000
+    PG_USERNAME: ''
+    PG_PASSWORD: ''

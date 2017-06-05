@@ -1,0 +1,8 @@
+Style/Documentation:
+  Enabled: false
+
+Layout/SpaceInsideParens:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120

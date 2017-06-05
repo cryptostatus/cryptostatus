@@ -4,8 +4,6 @@ default: &default
   pool: 15
   username: <%= ENV.fetch('PG_USERNAME') %>
   password: <%= ENV.fetch('PG_PASSWORD') %>
-  host: localhost
-  port: 5432
 
 development:
   <<: *default

@@ -1,14 +1,15 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :balance do
-    amount { rand(10_000..100_000) }
-    invested { rand(10_000..100_000) }
-    profit_percent { rand(100) / 100.0 }
+    user
+    name 'BTC'
+    amount { rand(1..100) }
+    price_per_item { rand(1..100) }
+    profit_percent { rand(1..100) / 100 }
 
-    # after(:build, &:skip_confirmation_notification!)
-    # after(:create, &:confirm)
-
-    # email { FFaker::Internet.email }
-    # password { FFaker::Internet.password(8) }
-    # password_confirmation { password }
+    trait :buyer do
+      strategy 'buyer'
+    end
   end
 end

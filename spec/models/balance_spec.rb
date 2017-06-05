@@ -1,42 +1,39 @@
-describe Balance, type: :model do
-  context 'Before validation' do
-    it '#set_price_per_item' do
-      user = create :user
-      params = {
-        user_id: User.last.id,
-        amount: 2,
-        invested: 200,
-        profit_percent: 20,
-        strategy: 'buyer'
-      }
-      subject = Balance.create(params)
-      expect(subject.price_per_item).to eq(100)
-    end
-  end
+# frozen_string_literal: true
 
+RSpec.describe Balance, type: :model do
   describe 'Scopes' do
-    describe 'notifiable' do
-      subject { described_class.notifiable }
+    describe 'should_be_notified' do
+      subject { described_class.should_be_notified }
 
       let(:user) { create(:user) }
 
-      context '' do
+      context do
         before { create(:balance, notified_at: nil, user: user) }
 
         it { is_expected.to be_present }
       end
 
-      context '' do
+      context do
         before { create(:balance, notified_at: 24.minutes.ago, user: user) }
 
         it { is_expected.to be_empty }
       end
 
-      context '' do
+      context do
         before { create(:balance, notified_at: 26.minutes.ago, user: user) }
 
         it { is_expected.to be_present }
       end
+    end
+  end
+
+  describe '#mark_as_notified!' do
+    let(:balance) { create(:balance, notified_at: nil) }
+
+    before { balance.mark_as_notified! }
+
+    it 'updates notified_at property' do
+      expect(balance.notified_at).not_to be_nil
     end
   end
 end

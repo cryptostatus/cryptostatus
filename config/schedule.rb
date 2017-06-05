@@ -1,3 +1,3 @@
-every 15.seconds do
+every 1.minutes do
   runner 'CurrencyLoggingWorker.perform_async'
 end

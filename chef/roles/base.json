@@ -25,9 +25,9 @@
       "user_installs": [
         {
           "user": "deployer",
-          "default_ruby": "2.3.4",
+          "default_ruby": "2.4.1",
           "rubies": [
-            "2.3.4"
+            "2.4.1"
           ]
         }
       ]
