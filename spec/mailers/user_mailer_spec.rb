@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe UserMailer do
   describe '#take_profit_email' do
     let(:balance) { create(:balance) }
