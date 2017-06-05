@@ -6,8 +6,6 @@ class BalanceNotifier < Rectify::Command
   end
 
   def call
-    return unless @balance
-
     @balance.mark_as_notified!
 
     UserMailer.take_profit_email(@balance).deliver_later
