@@ -5,7 +5,10 @@ class ProfitChecker < Rectify::Command
 
       next unless currency
 
-      Balance.profitable(currency.price).should_be_notified.each do |balance|
+      Balance.public_send(name)
+             .profitable(currency.price)
+             .should_be_notified.each do |balance|
+
         BalanceNotifier.call(balance, currency)
       end
     end
