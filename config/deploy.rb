@@ -10,7 +10,7 @@ set :keep_releases, 2
 set :log_level, :debug
 set :pty, false
 
-set :rvm1_ruby_version, 'ruby-2.3.4'
+set :rvm1_ruby_version, 'ruby-2.4.1'
 set :rvm1_map_bins, %w(rake gem bundle ruby rails sidekiq sidekiqctl whenever)
 
 set :rvm_type, :user
@@ -82,6 +82,7 @@ namespace :app do
           execute :bundle, :exec, :'pumactl -F config/puma.rb stop'
         end
 
+        execute :bundle, :exec, :"whenever --update-crontab"
         execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
       end
     end
