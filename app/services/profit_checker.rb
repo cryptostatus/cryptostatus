@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfitChecker < Rectify::Command
   def call
     Currency.names.keys.each do |name|
