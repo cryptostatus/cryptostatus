@@ -19,6 +19,7 @@ gem 'rectify', '~> 0.9.1'
 gem 'whenever', '~> 0.9.7', require: false
 gem 'devise_token_auth', '~> 0.1.42'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem 'byebug', platform: :mri

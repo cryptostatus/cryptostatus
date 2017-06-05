@@ -164,6 +164,7 @@ GEM
     public_suffix (2.0.5)
     puma (3.9.0)
     rack (2.0.3)
+    rack-cors (0.4.1)
     rack-protection (2.0.0)
       rack
     rack-test (0.6.3)
@@ -310,6 +311,7 @@ DEPENDENCIES
   pg (~> 0.18)
   pry-rails
   puma (~> 3.7)
+  rack-cors
   rails (~> 5.1.1)
   rectify (~> 0.9.1)
   rspec-rails

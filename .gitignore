@@ -19,3 +19,4 @@
 .byebug_history
 .env
 .env.production
+.ruby-gemset
