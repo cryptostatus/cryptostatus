@@ -13,6 +13,7 @@ require 'ffaker'
 require 'rectify/rspec'
 require 'wisper/rspec/stub_wisper_publisher'
 require 'shoulda/matchers'
+require 'cancan/matchers'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
@@ -20,6 +21,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
