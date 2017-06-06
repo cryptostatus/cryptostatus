@@ -20,7 +20,9 @@ module Api
       def update
         form = BalanceForm.from_params(balance_params)
         BalanceUpdater.call(form, @balance) do
-          on(:result) { |balance| respond_with :api, :v1, balance }
+          on(:result) do |balance|
+            respond_with :api, :v1, BalanceSerializer.new(balance)
+          end
         end
       end
 

@@ -31,9 +31,9 @@ module Api
       end
 
       describe 'PUT #update' do
-        it 'responds with 204' do
+        it 'responds with 200' do
           put :update, params: params.merge(id: balance.id), format: :json
-          expect(response).to have_http_status(204)
+          expect(response).to have_http_status(200)
         end
       end
 

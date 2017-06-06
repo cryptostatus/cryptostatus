@@ -17,5 +17,7 @@ module Cryptostatus
       g.test_framework :rspec
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
+
+    config.autoload_paths += Dir[File.join(Rails.root, 'lib', 'responders', '*.rb')].each { |l| require l }
   end
 end

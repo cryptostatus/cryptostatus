@@ -13,6 +13,7 @@ require 'ffaker'
 require 'rectify/rspec'
 require 'wisper/rspec/stub_wisper_publisher'
 require 'shoulda/matchers'
+require 'cancan/matchers'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
