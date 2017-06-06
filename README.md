@@ -1,1 +1,1 @@
-http://cryptostat.us/
+http://api.cryptostat.us/
