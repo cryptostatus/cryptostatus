@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe BalanceForm, type: :form do
-  let(:user) { create :user }
+  let(:user) { create(:user) }
+
   let(:params) do
     {
-      user_id: user.id,
       amount: 2,
       invested: 200,
       profit_percent: 20,
@@ -17,16 +17,15 @@ RSpec.describe BalanceForm, type: :form do
 
   context '#attributes' do
     it 'set price_per_item' do
-      expect { subject.attributes }.to change(subject, :price_per_item).from(nil).to(100)
+      expect(subject.price_per_item).to eq(100)
     end
 
     it 'update profit_percent' do
-      expect { subject.attributes }.to change(subject, :profit_percent).from(20).to(0.2)
+      expect(subject.profit_percent).to eq(0.2)
     end
   end
 
   it '#attributes' do
     expect(subject.attributes.keys).not_to include(:invested)
-    expect(subject.attributes[:price_per_item]).to eq(100)
   end
 end
