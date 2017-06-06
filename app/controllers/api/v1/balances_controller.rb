@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class BalancesController < ApplicationController
       authorize_resource
-      load_resource through: :current_user, only: [:index, :update, :destroy]
+      load_resource through: :current_user, only: %i[index update destroy]
 
       def index
         respond_with :api, :v1, BalanceSerializer.serialize_collection(@balances)
