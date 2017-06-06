@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe BalanceNotifier do
   describe '#call' do
     let(:balance) { create(:balance) }
