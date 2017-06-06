@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CurrencyTracker do
+describe CurrencyTracker do
   let(:prices) do
     {
       'BTC' => [
@@ -11,7 +11,10 @@ RSpec.describe CurrencyTracker do
     }
   end
 
-  before { allow(subject).to receive(:prices).and_return(prices) }
+  before do
+    allow(subject).to receive(:prices).and_return(prices)
+    allow(Currency).to receive_message_chain(:names, :keys).and_return(['BTC'])
+  end
 
   describe '#call' do
     it 'creates Currency entity with last price' do

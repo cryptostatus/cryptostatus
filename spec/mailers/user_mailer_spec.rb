@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe UserMailer do
+describe UserMailer do
   describe '#take_profit_email' do
     let(:balance) { create(:balance) }
 
