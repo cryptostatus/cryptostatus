@@ -4,6 +4,7 @@ module Api
       let(:user) { create :user }
       let!(:headers) { user.create_new_auth_token }
       let!(:balance) { create :balance, user: user }
+      let(:invalid_params) { { amount: -1, invested: 100, profit_percent: 9 } }
       let(:params) do
         {
           amount: 2,
@@ -24,16 +25,34 @@ module Api
       end
 
       describe 'POST #create' do
-        it 'responds with 201' do
-          post :create, params: params, format: :json
-          expect(response).to have_http_status(201)
+        context 'success' do
+          it 'responds with 201' do
+            post :create, params: params, format: :json
+            expect(response).to have_http_status(201)
+          end
+        end
+
+        context 'errors' do
+          it 'responds with 422' do
+            post :create, params: invalid_params, format: :json
+            expect(response).to have_http_status(422)
+          end
         end
       end
 
       describe 'PUT #update' do
-        it 'responds with 200' do
-          put :update, params: params.merge(id: balance.id), format: :json
-          expect(response).to have_http_status(200)
+        context 'success' do
+          it 'responds with 200' do
+            put :update, params: params.merge(id: balance.id), format: :json
+            expect(response).to have_http_status(200)
+          end
+        end
+
+        context 'errors' do
+          it 'responds with 422' do
+            put :update, params: invalid_params.merge(id: balance.id), format: :json
+            expect(response).to have_http_status(422)
+          end
         end
       end
 

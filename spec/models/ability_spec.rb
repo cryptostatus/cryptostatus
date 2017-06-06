@@ -9,7 +9,7 @@ describe Ability do
   subject { Ability.new(user) }
 
   describe 'Balance' do
-    content 'current user' do
+    context 'current user' do
       it { is_expected.to be_able_to(:read, balance) }
       it { is_expected.to be_able_to(:update, balance) }
       it { is_expected.to be_able_to(:destroy, balance) }
@@ -17,7 +17,7 @@ describe Ability do
 
     end
 
-    content 'foreign user' do
+    context 'foreign user' do
       it { is_expected.not_to be_able_to(:read, second_balance) }
       it { is_expected.not_to be_able_to(:update, second_balance) }
       it { is_expected.not_to be_able_to(:destroy, second_balance) }
