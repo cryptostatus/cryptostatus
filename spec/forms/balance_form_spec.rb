@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe BalanceForm, type: :form do
+describe BalanceForm, type: :form do
   let(:user) { create(:user) }
 
   let(:params) do

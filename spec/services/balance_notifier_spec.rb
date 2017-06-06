@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe BalanceNotifier do
+describe BalanceNotifier do
   describe '#call' do
     let(:balance) { create(:balance) }
 
