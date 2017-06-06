@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
 
   include DeviseTokenAuth::Concerns::User
 
-  has_many :balances, dependent: :destroy
+  has_many :balances, inverse_of: :user, dependent: :destroy
 end

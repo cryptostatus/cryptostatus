@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Responders
   module JsonResponder
     protected
@@ -5,7 +7,7 @@ module Responders
     def api_behavior
       if post?
         display resource, status: :created
-      elsif put?
+      elsif put? || patch?
         display resource, status: :ok
       else
         super

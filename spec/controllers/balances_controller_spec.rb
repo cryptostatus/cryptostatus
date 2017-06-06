@@ -1,10 +1,20 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     describe BalancesController, type: :controller do
       let(:user) { create :user }
-      let!(:headers) { user.create_new_auth_token }
-      let!(:balance) { create :balance, user: user }
-      let(:invalid_params) { { amount: -1, invested: 100, profit_percent: 9 } }
+      let(:headers) { user.create_new_auth_token }
+      let(:balance) { create :balance, user: user }
+
+      let(:invalid_params) do
+        {
+          amount: -1,
+          invested: 100,
+          profit_percent: 9
+        }
+      end
+
       let(:params) do
         {
           amount: 2,

@@ -8,7 +8,7 @@ class Balance < ApplicationRecord
     buyer: 1
   }
 
-  belongs_to :user
+  belongs_to :user, inverse_of: :balances
 
   scope :profitable, ->(actual) { where('price_per_item * (1 + profit_percent) <= ?', actual) }
   scope :should_be_notified, -> { where('notified_at IS NULL OR notified_at < ?', 25.minutes.ago) }
