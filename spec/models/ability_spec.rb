@@ -8,15 +8,20 @@ describe Ability do
 
   subject { Ability.new(user) }
 
-  context 'Balance' do
-    it { is_expected.to be_able_to(:read, balance) }
-    it { is_expected.to be_able_to(:update, balance) }
-    it { is_expected.to be_able_to(:destroy, balance) }
-    it { is_expected.to be_able_to(:create, new_balance) }
+  describe 'Balance' do
+    content 'current user' do
+      it { is_expected.to be_able_to(:read, balance) }
+      it { is_expected.to be_able_to(:update, balance) }
+      it { is_expected.to be_able_to(:destroy, balance) }
+      it { is_expected.to be_able_to(:create, new_balance) }
 
-    it { is_expected.not_to be_able_to(:read, second_balance) }
-    it { is_expected.not_to be_able_to(:update, second_balance) }
-    it { is_expected.not_to be_able_to(:destroy, second_balance) }
-    it { is_expected.not_to be_able_to(:destroy, second_new_balance) }
+    end
+
+    content 'foreign user' do
+      it { is_expected.not_to be_able_to(:read, second_balance) }
+      it { is_expected.not_to be_able_to(:update, second_balance) }
+      it { is_expected.not_to be_able_to(:destroy, second_balance) }
+      it { is_expected.not_to be_able_to(:destroy, second_new_balance) }
+    end
   end
 end
