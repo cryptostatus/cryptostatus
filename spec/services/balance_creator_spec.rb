@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 describe BalanceCreator, type: :service do
   let(:user) { create :user }
+
   let(:params) do
     {
       amount: 2,
@@ -13,6 +16,7 @@ describe BalanceCreator, type: :service do
   describe '.call' do
     it 'should create balance' do
       form = BalanceForm.from_params(params)
+
       expect { BalanceCreator.call(form, user) }.to change { Balance.count }.by(1)
     end
   end

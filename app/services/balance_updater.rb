@@ -1,12 +1,19 @@
+# frozen_string_literal: true
+
 class BalanceUpdater < Rectify::Command
   def initialize(form, balance, user)
-    @form = form
+    @form    = form
     @balance = balance
-    @user = user
+    @user    = user
   end
 
   def call
-    @balance.update(@form.attributes.merge(user_id: @user.id))
+    @balance.update(
+      @form.attributes.merge(
+        user: @user
+      )
+    )
+
     broadcast :result, @balance
   end
 end
