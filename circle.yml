@@ -5,3 +5,8 @@ machine:
     DOMAIN: http://localhost:3000
     PG_USERNAME: ''
     PG_PASSWORD: ''
+deployment:
+  production:
+    branch: master
+    commands:
+      - bundle exec cap production deploy
