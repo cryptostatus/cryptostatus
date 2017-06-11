@@ -3,6 +3,7 @@
 class BalanceSerializer < Operators::Serializer
   def as_json
     {
+      type: 'balances',
       id: id,
       name: name,
       amount: amount,
