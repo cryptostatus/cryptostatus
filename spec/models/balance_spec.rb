@@ -36,4 +36,33 @@ describe Balance, type: :model do
       expect(balance.notified_at).not_to be_nil
     end
   end
+
+  describe '#invested' do
+    let(:balance) { create(:balance, amount: 10, price_per_item: 10) }
+
+    it 'returns invested money' do
+      expect(balance.invested).to eq(100)
+    end
+  end
+
+  describe '#current_price_per_item' do
+    let(:balance) { create(:balance) }
+    let!(:currency) { create(:currency) }
+
+    it { expect(balance.current_price_per_item).to eq(currency.price) }
+  end
+
+  describe '#current_balance_price' do
+    let(:balance) { create(:balance, amount: 2) }
+    let!(:currency) { create(:currency, price: 15) }
+
+    it { expect(balance.current_balance_price).to eq(30) }
+  end
+
+  describe '#current_profit_percent' do
+    let(:balance) { create(:balance, amount: 1, price_per_item: 10) }
+    let!(:currency) { create(:currency, price: 15) }
+
+    it { expect(balance.current_profit_percent).to eq(1.5) }
+  end
 end

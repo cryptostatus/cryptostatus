@@ -6,6 +6,7 @@ module Api
       let(:user) { create :user }
       let(:headers) { user.create_new_auth_token }
       let(:balance) { create :balance, user: user }
+      let!(:currency) { create :currency }
 
       let(:invalid_params) do
         {

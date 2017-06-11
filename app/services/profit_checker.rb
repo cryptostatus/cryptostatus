@@ -3,7 +3,7 @@
 class ProfitChecker < Rectify::Command
   def call
     Currency.names.keys.each do |name|
-      currency = Currency.public_send(name).order(:created_at).last
+      currency = Currency.public_send(name).order_by_time.last
 
       next unless currency
 

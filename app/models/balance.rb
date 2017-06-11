@@ -17,11 +17,26 @@ class Balance < ApplicationRecord
             presence: true
 
   validates :profit_percent, numericality: {
-    greater_thanor_equal_to: 0.01,
-    less_than_or_equal_to: 1
+    greater_thanor_equal_to: 0.01
   }
 
   def mark_as_notified!
     update!(notified_at: Time.zone.now)
+  end
+
+  def invested
+    price_per_item * amount
+  end
+
+  def current_price_per_item
+    Currency.public_send(name).order_by_time.last&.price
+  end
+
+  def current_balance_price
+    current_price_per_item * amount
+  end
+
+  def current_profit_percent
+    current_price_per_item / price_per_item
   end
 end
