@@ -4,7 +4,7 @@ module Serializable
   extend ActiveSupport::Concern
 
   included do
-    def as_json(_)
+    def as_json(*)
       "#{self.class}Serializer".constantize.new(self)
     end
   end
