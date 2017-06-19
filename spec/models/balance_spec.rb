@@ -27,6 +27,15 @@ describe Balance, type: :model do
     end
   end
 
+  describe 'Validations' do
+    it { is_expected.to validate_presence_of(:user) }
+    it { is_expected.to validate_presence_of(:amount) }
+    it { is_expected.to validate_presence_of(:price_per_item) }
+    it { is_expected.to validate_presence_of(:profit_percent) }
+    it { is_expected.to validate_presence_of(:strategy) }
+    it { is_expected.to validate_numericality_of(:profit_percent).is_greater_than_or_equal_to(0.01) }
+  end
+
   describe '#mark_as_notified!' do
     let(:balance) { create(:balance, notified_at: nil) }
 

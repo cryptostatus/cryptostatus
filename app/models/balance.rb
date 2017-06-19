@@ -17,7 +17,7 @@ class Balance < ApplicationRecord
             presence: true
 
   validates :profit_percent, numericality: {
-    greater_thanor_equal_to: 0.01
+    greater_than_or_equal_to: 0.01
   }
 
   def mark_as_notified!

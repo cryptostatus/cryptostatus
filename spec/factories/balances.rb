@@ -6,7 +6,7 @@ FactoryGirl.define do
     name 'BTC'
     amount { rand(1..100) }
     price_per_item { rand(1..100) }
-    profit_percent { rand(1..100) / 100 }
+    profit_percent { rand(1..100) / 100.0 }
 
     trait :buyer do
       strategy 'buyer'
