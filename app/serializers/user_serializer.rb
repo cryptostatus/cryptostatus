@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserSerializer < Operators::Serializer
-  def as_json
+  def as_json(*)
     {
       id: id,
       email: email
