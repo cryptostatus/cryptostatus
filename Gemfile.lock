@@ -110,6 +110,8 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
+    faraday (0.12.1)
+      multipart-post (>= 1.2, < 3)
     ffaker (2.5.0)
     ffi (1.9.18)
     globalid (0.4.0)
@@ -164,6 +166,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
+    multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
@@ -271,6 +274,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sentry-raven (2.5.3)
+      faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.9.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
@@ -363,6 +368,7 @@ DEPENDENCIES
   rubocop (~> 0.49.1)
   rvm1-capistrano3 (= 1.4.0)
   sass-rails (~> 5.0)
+  sentry-raven (~> 2.5)
   shoulda-matchers
   sidekiq (~> 5.0)
   spring
