@@ -37,6 +37,6 @@ class Balance < ApplicationRecord
   end
 
   def current_profit_percent
-    current_price_per_item / price_per_item
+    (current_price_per_item - price_per_item) / price_per_item
   end
 end

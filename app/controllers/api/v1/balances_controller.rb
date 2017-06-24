@@ -3,7 +3,7 @@
 module Api
   module V1
     class BalancesController < ApplicationController
-      load_and_authorize_resource through: :current_user, only: %i[index update destroy]
+      load_and_authorize_resource only: %i[index update destroy]
 
       def index
         respond_with @balances

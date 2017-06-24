@@ -72,6 +72,6 @@ describe Balance, type: :model do
     let(:balance) { create(:balance, amount: 1, price_per_item: 10) }
     let!(:currency) { create(:currency, price: 15) }
 
-    it { expect(balance.current_profit_percent).to eq(1.5) }
+    it { expect(balance.current_profit_percent).to eq(0.5) }
   end
 end
