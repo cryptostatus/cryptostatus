@@ -5,6 +5,7 @@ machine:
     DOMAIN: http://localhost:3000
     PG_USERNAME: ''
     PG_PASSWORD: ''
+    MAILER_SENDER='no-reply@cryptostat.us'
 deployment:
   production:
     branch: master
