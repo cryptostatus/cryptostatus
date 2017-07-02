@@ -1,0 +1,318 @@
+{
+  "balances#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/balances",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+        "amount": "-1",
+        "invested": "100",
+        "profit_percent": "9"
+      },
+      "response_data": {
+        "errors": {
+          "strategy": [
+            "can't be blank"
+          ]
+        }
+      },
+      "code": "422",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/balances",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+        "amount": "2",
+        "invested": "200",
+        "name": "BTC",
+        "profit_percent": "20",
+        "strategy": "buyer"
+      },
+      "response_data": {
+        "type": "balances",
+        "id": 1,
+        "name": "BTC",
+        "amount": 2.0,
+        "strategy": "buyer",
+        "invested": 200.0,
+        "price_per_item": 100.0,
+        "profit_percent": 20.0,
+        "current_balance_price": 56.0,
+        "current_price_per_item": 28.0,
+        "current_profit_percent": -72.0
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "balances#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/api/v1/balances/4",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+      },
+      "response_data": null,
+      "code": "204",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "balances#index": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/balances",
+      "versions": [
+        "v1"
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": [
+        {
+          "type": "balances",
+          "id": 2,
+          "name": "BTC",
+          "amount": 61.0,
+          "strategy": "seller",
+          "invested": 4758.0,
+          "price_per_item": 78.0,
+          "profit_percent": 96.0,
+          "current_balance_price": 2928.0,
+          "current_price_per_item": 48.0,
+          "current_profit_percent": -38.46153846153847
+        },
+        {
+          "type": "balances",
+          "id": 3,
+          "name": "BTC",
+          "amount": 49.0,
+          "strategy": "seller",
+          "invested": 3283.0,
+          "price_per_item": 67.0,
+          "profit_percent": 94.0,
+          "current_balance_price": 2352.0,
+          "current_price_per_item": 48.0,
+          "current_profit_percent": -28.35820895522388
+        }
+      ],
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "balances#update": [
+    {
+      "verb": "PUT",
+      "path": "/api/v1/balances/5",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+        "amount": "-1",
+        "invested": "100",
+        "profit_percent": "9"
+      },
+      "response_data": {
+        "errors": {
+          "strategy": [
+            "can't be blank"
+          ]
+        }
+      },
+      "code": "422",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "PUT",
+      "path": "/api/v1/balances/6",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+        "amount": "2",
+        "invested": "200",
+        "name": "BTC",
+        "profit_percent": "20",
+        "strategy": "buyer"
+      },
+      "response_data": {
+        "type": "balances",
+        "id": 6,
+        "name": "BTC",
+        "amount": 2.0,
+        "strategy": "buyer",
+        "invested": 200.0,
+        "price_per_item": 100.0,
+        "profit_percent": 20.0,
+        "current_balance_price": 14.0,
+        "current_price_per_item": 7.0,
+        "current_profit_percent": -93.0
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "overrides-registrations#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/auth",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+        "email": "desire@goldner.name",
+        "password": "ooooooooooooo",
+        "password_confirmation": "ooooooooooooo"
+      },
+      "response_data": {
+        "id": 1,
+        "email": "desire@goldner.name"
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/auth",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+        "email": "honey_gibson@bergnaum.co.uk",
+        "password": "",
+        "password_confirmation": ""
+      },
+      "response_data": {
+        "status": "error",
+        "data": {
+          "id": null,
+          "email": "honey_gibson@bergnaum.co.uk"
+        },
+        "errors": {
+          "password": [
+            "can't be blank"
+          ],
+          "full_messages": [
+            "Password can't be blank"
+          ]
+        }
+      },
+      "code": "422",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "overrides-sessions#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/auth/sign_in",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+        "email": "numbers.kling@sipesoberbrunner.ca",
+        "password": ""
+      },
+      "response_data": {
+        "errors": [
+          "Invalid login credentials. Please try again."
+        ]
+      },
+      "code": "401",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/auth/sign_in",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+        "email": "floy.stark@jacobs.us",
+        "password": "password_1"
+      },
+      "response_data": {
+        "id": 4,
+        "email": "floy.stark@jacobs.us"
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "overrides-sessions#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/api/v1/auth/sign_out",
+      "versions": [
+        "v1"
+      ],
+      "query": null,
+      "request_data": {
+      },
+      "response_data": null,
+      "code": "204",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "overrides-token_validations#validate_token": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/auth/validate_token.json",
+      "versions": [
+        "v1"
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": {
+        "success": false,
+        "errors": [
+          "Invalid login credentials"
+        ]
+      },
+      "code": "401",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/api/v1/auth/validate_token.json",
+      "versions": [
+        "v1"
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": {
+        "id": 5,
+        "email": "harry@barrowsauer.info"
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ]
+}

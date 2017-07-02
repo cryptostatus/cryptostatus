@@ -47,7 +47,18 @@ namespace :deploy do
     end
   end
 
+  desc 'Generate doc'
+  task :generate_doc do
+    on roles(:app) do
+      invoke 'rvm1:hook'
+      within release_path do
+        execute :bundle, :exec, :"rake apipie:static"
+      end
+    end
+  end
+
   before 'deploy:migrate', 'deploy:create_db'
+  after :finished, 'deploy:generate_doc'
   after :finished, 'deploy:seed'
   after :finished, 'app:restart'
 end

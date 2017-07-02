@@ -3,12 +3,15 @@
 module Api
   module V1
     class BalancesController < ApplicationController
+      extend BalancesDoc
       load_and_authorize_resource only: %i[index update destroy]
 
+      index_doc
       def index
         respond_with @balances
       end
 
+      create_doc
       def create
         form = BalanceForm.from_params(params)
 
@@ -17,6 +20,7 @@ module Api
         end
       end
 
+      update_doc
       def update
         form = BalanceForm.from_params(params)
 
@@ -25,6 +29,7 @@ module Api
         end
       end
 
+      destroy_doc
       def destroy
         respond_with @balance.destroy
       end

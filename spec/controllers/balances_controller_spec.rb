@@ -28,14 +28,16 @@ module Api
 
       before { request.headers.merge! headers }
 
-      describe 'GET #index' do
+      describe 'GET #index', :show_in_doc do
+        before { create_list :balance, 2, user: user }
+
         it 'responds with 200' do
           get :index, format: :json
           expect(response).to have_http_status(200)
         end
       end
 
-      describe 'POST #create' do
+      describe 'POST #create', :show_in_doc do
         context 'success' do
           it 'responds with 201' do
             post :create, params: params, format: :json
@@ -44,14 +46,14 @@ module Api
         end
 
         context 'errors' do
-          it 'responds with 422' do
+          it 'responds with 422', :show_in_doc do
             post :create, params: invalid_params, format: :json
             expect(response).to have_http_status(422)
           end
         end
       end
 
-      describe 'PUT #update' do
+      describe 'PUT #update', :show_in_doc do
         context 'success' do
           it 'responds with 200' do
             put :update, params: params.merge(id: balance.id), format: :json
@@ -67,7 +69,7 @@ module Api
         end
       end
 
-      describe 'DELETE #destroy' do
+      describe 'DELETE #destroy', :show_in_doc do
         before { delete :destroy, params: { id: balance.id }, format: :json }
 
         it 'responds with 204' do

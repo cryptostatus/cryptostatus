@@ -1,8 +1,31 @@
-Style/Documentation:
-  Enabled: false
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'config/boot.rb'
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+    - 'Rakefile'
+  TargetRubyVersion: 2.4.1
+
+Style/Encoding:
+  EnforcedStyle: when_needed
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
 
 Layout/SpaceInsideParens:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 120
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'

@@ -28,6 +28,7 @@ gem 'responders', '~> 2.4'
 gem 'cancancan', '~> 2.0'
 gem 'operators-serializer', '~> 0.2.0'
 gem 'sentry-raven', '~> 2.5'
+gem 'apipie-rails', '~> 0.5.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
