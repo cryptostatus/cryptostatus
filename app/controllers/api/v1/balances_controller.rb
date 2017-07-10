@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class BalancesController < ApplicationController
+    class BalancesController < Api::V1::ApplicationController
       extend BalancesDoc
       load_and_authorize_resource only: %i[index update destroy]
 
