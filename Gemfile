@@ -29,6 +29,7 @@ gem 'cancancan', '~> 2.0'
 gem 'operators-serializer', '~> 0.2.0'
 gem 'sentry-raven', '~> 2.5'
 gem 'apipie-rails', '~> 0.5.1'
+gem 'listen'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -43,7 +44,6 @@ group :development do
   gem 'capistrano-rails', '1.1.6', require: false
   gem 'capistrano-sidekiq', '~> 0.10.0'
   gem 'letter_opener_web', '~> 1.3', '>= 1.3.1'
-  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rvm1-capistrano3', '1.4.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
