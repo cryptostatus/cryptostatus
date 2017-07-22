@@ -43,7 +43,6 @@ group :development do
   gem 'capistrano-bundler', '1.1.4', require: false
   gem 'capistrano-rails', '1.1.6', require: false
   gem 'capistrano-sidekiq', '~> 0.10.0'
-  gem 'letter_opener_web', '~> 1.3', '>= 1.3.1'
   gem 'rvm1-capistrano3', '1.4.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

@@ -22,6 +22,4 @@ Rails.application.routes.draw do
       resources :balances, only: %i[index create update destroy]
     end
   end
-
-  mount LetterOpenerWeb::Engine, at: '/letter-opener' if Rails.env.development?
 end
