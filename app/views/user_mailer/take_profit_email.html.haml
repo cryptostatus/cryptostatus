@@ -1,1 +1,25 @@
-Hey! Take your profit!
+%table{bgcolor: '#fff', cellpadding: '0', cellspacing: '0', style: 'font-family:Arial,Helvetica,sans-serif;color:#000;font-size:17px; background: #fff;', width: '100%'}
+  %tbody
+    %tr
+      %td{align: 'center', valign: 'top'}
+        %table{cellpadding: '0', cellspacing: '0', style: 'padding: 0 5px 10px;', width: '598'}
+          %tr
+            %td{align: 'center', colspan: '3', style: 'background: #000; padding: 50px 0;'}
+              %a{href: "#{ENV['CLIENT_URL']}", target: '_blank'}
+                %img{alt: 'Cryptostatus logo', src: "img"}/
+          %tr
+            %td{colspan: '3', style: 'padding: 30px 0; font-size: 17px; line-height: 24px;'}
+              %div{style: 'padding: 0 0 25px; font-size: 26px;'}
+                %b Hello!
+              = "You have the opportunity to earn #{@balance.current_balance_price}"
+          %tr
+            %td{align: 'center', colspan: '2', style: 'padding: 0 0 20px 0;'}
+              %a{href: '#', style: 'backgroun: #000; border: 2px solid #000;  text-decoration: none; display: block; width: 200px; height: 40px; text-align: center; border-radius: 6px;', target: '_blank'}
+                %b{style: 'font-size: 14px; line-height: 40px; color: #000;'} Go to all balances
+          %tr
+            %td{align: 'center', colspan: '2', style: 'border-bottom: 1px solid #d7d7d7; padding: 0 0 10px 0;'}
+              %a{href: "#{@inactivate_balance_url}", target: '_blank'}
+                %b{style: 'font-size: 12px; line-height: 30px; color: #000;'} Inactivate current balance
+          %tr
+            %td{align: 'center', colspan: '2', style: 'padding: 25px 8px 10px; font-size: 14px; color: #fff;'}
+              %a{href: "#{ENV['CLIENT_URL']}", style: 'text-decoration: none; color: #000', target: '_blank'} © Cryptostatus 2017
