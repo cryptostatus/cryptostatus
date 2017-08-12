@@ -14,9 +14,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: :auth, controllers: {
-        token_validations: 'api/v1/overrides/token_validations',
-        registrations:     'api/v1/overrides/registrations',
-        sessions:          'api/v1/overrides/sessions'
+        token_validations:  'api/v1/overrides/token_validations',
+        registrations:      'api/v1/overrides/registrations',
+        sessions:           'api/v1/overrides/sessions',
+        omniauth_callbacks: 'api/v1/overrides/omniauth_callbacks'
       }
 
       resources :balances, only: %i[index create update destroy]
