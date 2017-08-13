@@ -30,6 +30,9 @@ gem 'operators-serializer', '~> 0.2.0'
 gem 'sentry-raven', '~> 2.5'
 gem 'apipie-rails', '~> 0.5.1'
 gem 'listen', '~> 3.1.5'
+gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+gem 'omniauth-facebook', '~> 4.0.0'
+gem 'omniauth-google-oauth2', '~> 0.4.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
