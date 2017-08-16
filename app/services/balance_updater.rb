@@ -8,6 +8,8 @@ class BalanceUpdater < Rectify::Command
   end
 
   def call
+    return broadcast :result, @form unless @form.valid?
+
     @balance.update(
       @form.attributes.merge(
         user: @user

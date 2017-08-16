@@ -7,6 +7,8 @@ class BalanceCreator < Rectify::Command
   end
 
   def call
+    return broadcast :result, @form unless @form.valid?
+
     balance = Balance.create(
       @form.attributes.merge(
         user: @user

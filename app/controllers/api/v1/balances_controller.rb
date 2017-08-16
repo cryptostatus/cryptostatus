@@ -13,18 +13,14 @@ module Api
 
       create_doc
       def create
-        form = BalanceForm.from_params(params)
-
-        BalanceCreator.call(form, current_user) do
+        BalanceCreator.call(balance_form, current_user) do
           on(:result) { |balance| respond_with balance }
         end
       end
 
       update_doc
       def update
-        form = BalanceForm.from_params(params)
-
-        BalanceUpdater.call(form, @balance, current_user) do
+        BalanceUpdater.call(balance_form, @balance, current_user) do
           on(:result) { |balance| respond_with balance }
         end
       end
@@ -32,6 +28,12 @@ module Api
       destroy_doc
       def destroy
         respond_with @balance.destroy
+      end
+
+      private
+
+      def balance_form
+        @balance_form ||= BalanceForm.from_params(params)
       end
     end
   end
