@@ -27,7 +27,9 @@ module Api
 
       destroy_doc
       def destroy
-        respond_with @balance.destroy
+        @balance.destroy
+
+        respond_with @balance
       end
 
       private

@@ -73,7 +73,7 @@ module Api
         before { delete :destroy, params: { id: balance.id }, format: :json }
 
         it 'responds with 204' do
-          expect(response).to have_http_status(204)
+          expect(response).to have_http_status(200)
         end
       end
     end
