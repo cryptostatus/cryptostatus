@@ -8,6 +8,7 @@ class BalanceSerializer < Operators::Serializer
       name: name,
       amount: amount,
       strategy: strategy,
+      updated_at: updated_at,
       invested: invested.round(2),
       price_per_item: price_per_item.round(2),
       profit_percent: (profit_percent * 100).round(2),
