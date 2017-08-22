@@ -2,6 +2,8 @@ module Api
   module V1
     module Overrides
       class OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksController
+        before_action :check_auth_info
+
         def get_resource_from_auth_hash
           info = auth_hash['info']
           @resource = resource_class.find_or_initialize_by(email: info['email'])
@@ -41,6 +43,13 @@ module Api
             name: auth_hash['info']['name'],
             email: auth_hash['info']['email']
           )
+        end
+
+        private
+
+        def check_auth_info
+          return unless auth_hash
+          redirect_to ENV['OAUTH_FAILURE'] unless auth_hash['info']['email']
         end
       end
     end
