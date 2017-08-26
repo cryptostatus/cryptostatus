@@ -93,7 +93,6 @@ namespace :app do
           execute :bundle, :exec, :'pumactl -F config/puma.rb stop'
         end
 
-        execute :bundle, :exec, :"whenever --update-crontab"
         execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
       end
     end

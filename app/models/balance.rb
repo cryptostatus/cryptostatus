@@ -11,7 +11,7 @@ class Balance < ApplicationRecord
   belongs_to :user, inverse_of: :balances
 
   scope :profitable, ->(actual) { where('price_per_item * (1 + profit_percent) <= ?', actual) }
-  scope :should_be_notified, -> { where('notified_at IS NULL OR notified_at < ?', 25.minutes.ago) }
+  scope :should_be_notified, -> { where('notified_at IS NULL OR notified_at < ?', 1.day.ago) }
 
   validates :user, :amount, :price_per_item, :profit_percent, :strategy,
             presence: true
