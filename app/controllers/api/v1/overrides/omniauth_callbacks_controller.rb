@@ -2,6 +2,8 @@ module Api
   module V1
     module Overrides
       class OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksController
+        include Redirect
+
         before_action :check_auth_info
 
         def get_resource_from_auth_hash
