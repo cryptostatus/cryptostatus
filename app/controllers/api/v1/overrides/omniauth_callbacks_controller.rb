@@ -48,8 +48,8 @@ module Api
         private
 
         def check_auth_info
-          return unless auth_hash
-          redirect_to ENV['OAUTH_FAILURE'] unless auth_hash['info']['email']
+          return if !auth_hash || auth_hash['info']['email']
+          redirect_to_with_params ENV['OAUTH_FAILURE'], error: I18n.t('errors.oauth_email_blank')
         end
       end
     end
