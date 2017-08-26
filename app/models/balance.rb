@@ -16,9 +16,15 @@ class Balance < ApplicationRecord
   validates :user, :amount, :price_per_item, :profit_percent, :strategy,
             presence: true
 
-  validates :amount, numericality: { greater_than_or_equal_to: 0.000001 }
-  validates :profit_percent, :price_per_item, numericality: { greater_than_or_equal_to: 0.01, }
-  validates :amount, :profit_percent, :price_per_item, numericality: { less_than_or_equal_to: 999999 }
+  validates :profit_percent, numericality: {
+    greater_than_or_equal_to: 0.01,
+    less_than_or_equal_to: 1
+  }
+
+  validates :amount, :price_per_item, numericality: {
+    greater_than_or_equal_to: 0.000001,
+    less_than_or_equal_to: 999999
+  }
 
   def mark_as_notified!
     update!(notified_at: Time.zone.now)

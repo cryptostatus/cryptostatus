@@ -10,9 +10,11 @@ class BalanceForm < ApplicationForm
   attribute :profit_percent, Float
 
   validates :invested, :amount, :price_per_item, :profit_percent, presence: true
-  validates :amount, numericality: { greater_than_or_equal_to: 0.000001 }
-  validates :invested, :profit_percent, numericality: { greater_than_or_equal_to: 0.01, }
-  validates :amount, :invested, :profit_percent, numericality: { less_than_or_equal_to: 999999 }
+
+  validates :invested, numericality: {
+    greater_than_or_equal_to: 0.000001,
+    less_than_or_equal_to: 999999
+  }
 
   def attributes
     super.except(:invested)
