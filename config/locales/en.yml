@@ -2,3 +2,5 @@ en:
   user_mailer:
     take_profit_email:
       subject: 'Hey! Take your profit!'
+  errors:
+    oauth_email_blank: "You can't sign up without public email"
