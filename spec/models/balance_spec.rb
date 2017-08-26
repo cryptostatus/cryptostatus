@@ -14,13 +14,13 @@ describe Balance, type: :model do
       end
 
       context do
-        before { create(:balance, notified_at: 24.minutes.ago, user: user) }
+        before { create(:balance, notified_at: 23.hours.ago, user: user) }
 
         it { is_expected.to be_empty }
       end
 
       context do
-        before { create(:balance, notified_at: 26.minutes.ago, user: user) }
+        before { create(:balance, notified_at: 1.day.ago, user: user) }
 
         it { is_expected.to be_present }
       end

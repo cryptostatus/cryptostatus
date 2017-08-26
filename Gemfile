@@ -22,7 +22,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'sidekiq', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'whenever', '~> 0.9.7', require: false
 gem 'rack-cors', require: 'rack/cors'
 gem 'responders', '~> 2.4'
 gem 'cancancan', '~> 2.0'
@@ -33,6 +32,7 @@ gem 'listen', '~> 3.1.5'
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-facebook', '~> 4.0.0'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'sidekiq-scheduler', '~> 2.1.8'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,0 +1,3 @@
+currency_logging_worker:
+  every: '30s'
+  class: CurrencyLoggingWorker
