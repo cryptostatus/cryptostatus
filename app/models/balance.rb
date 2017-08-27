@@ -18,7 +18,7 @@ class Balance < ApplicationRecord
 
   validates :profit_percent, numericality: {
     greater_than_or_equal_to: 0.01,
-    less_than_or_equal_to: 1
+    less_than_or_equal_to: 999999
   }
 
   validates :amount, :price_per_item, numericality: {
