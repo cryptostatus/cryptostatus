@@ -14,7 +14,7 @@
               = "You have an opportunity to sell your <b>#{@balance.name}</b> for about <b>#{@balance.current_balance_price.to_i}$</b> instead of invested <b>#{@balance.invested.to_i}$</b>".html_safe
           %tr
             %td{align: 'center', colspan: '2', style: 'padding: 0 0 20px 0;'}
-              %a{href: '#', style: 'backgroun: #000; border: 2px solid #000;  text-decoration: none; display: block; width: 200px; height: 40px; text-align: center; border-radius: 6px;', target: '_blank'}
+              %a{href: "#{ENV['CLIENT_BALANCES']}", style: 'backgroun: #000; border: 2px solid #000;  text-decoration: none; display: block; width: 200px; height: 40px; text-align: center; border-radius: 6px;', target: '_blank'}
                 %b{style: 'font-size: 14px; line-height: 40px; color: #000;'} Go to all balances
           %tr
             %td{align: 'center', colspan: '2', style: 'border-bottom: 1px solid #d7d7d7; padding: 0 0 10px 0;'}
