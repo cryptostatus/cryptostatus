@@ -34,11 +34,13 @@ describe Balance, type: :model do
     it { is_expected.to validate_presence_of(:profit_percent) }
     it { is_expected.to validate_presence_of(:strategy) }
     it { is_expected.to validate_numericality_of(:amount).is_greater_than_or_equal_to(0.000001) }
-    it { is_expected.to validate_numericality_of(:price_per_item).is_greater_than_or_equal_to(0.01) }
-    it { is_expected.to validate_numericality_of(:profit_percent).is_greater_than_or_equal_to(0.01) }
     it { is_expected.to validate_numericality_of(:amount).is_less_than_or_equal_to(999999) }
+
+    it { is_expected.to validate_numericality_of(:profit_percent).is_greater_than_or_equal_to(0.01) }
+    it { is_expected.to validate_numericality_of(:profit_percent).is_less_than_or_equal_to(1) }
+
+    it { is_expected.to validate_numericality_of(:price_per_item).is_greater_than_or_equal_to(0.000001) }
     it { is_expected.to validate_numericality_of(:price_per_item).is_less_than_or_equal_to(999999) }
-    it { is_expected.to validate_numericality_of(:profit_percent).is_less_than_or_equal_to(999999) }
   end
 
   describe '#mark_as_notified!' do
