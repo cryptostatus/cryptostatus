@@ -1,4 +1,4 @@
-module ImageServices
+module Image
   class InsertText
     attr_reader :path, :font_size, :font_family, :text_coords
 

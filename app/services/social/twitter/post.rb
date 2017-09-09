@@ -1,6 +1,6 @@
-module SocialNetworksServices
+module Social
   module Twitter
-    class CreateTweet < SocialNetworksServices::Twitter::Base
+    class CreateTweet
       attr_reader :message, :photo
 
       def initialize(options = {})
@@ -9,7 +9,11 @@ module SocialNetworksServices
       end
 
       def call
-        twitter.update_with_media(message, photo)
+        client.update_with_media(message, photo)
+      end
+
+      def client
+        @client ||= Client.call
       end
     end
   end

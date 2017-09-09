@@ -1,6 +1,6 @@
-module SocialNetworksServices
+module Social
   module Facebook
-    class CreatePost < SocialNetworksServices::Facebook::Base
+    class CreatePost
       attr_reader :title, :name, :description, :photo_path
 
       def initialize(options = {})
@@ -11,7 +11,11 @@ module SocialNetworksServices
       end
 
       def call
-        facebook.put_picture(File.open('test.jpg'), message: title)
+        client.put_picture(File.open('test.jpg'), message: title)
+      end
+
+      def client
+        @client ||= Client.call
       end
     end
   end
