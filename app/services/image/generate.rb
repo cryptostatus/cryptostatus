@@ -1,5 +1,5 @@
 module Image
-  class InsertText
+  class Generate
     attr_reader :path, :font_size, :font_family, :text_coords
 
     def self.call(*args)

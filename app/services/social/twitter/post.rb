@@ -1,7 +1,11 @@
 module Social
   module Twitter
-    class CreateTweet
+    class Post
       attr_reader :message, :photo
+
+      def self.call(*args)
+        new(*args).call
+      end
 
       def initialize(options = {})
         @message = options[:message]

@@ -10,7 +10,6 @@ class CurrencyTracker < Rectify::Command
   private
 
   def prices
-    binding.pry
     @prices ||= Lionshare::Client.new.prices.get(period: :hour)['data']
   end
 end

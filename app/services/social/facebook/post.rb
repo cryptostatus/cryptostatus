@@ -1,17 +1,19 @@
 module Social
   module Facebook
-    class CreatePost
-      attr_reader :title, :name, :description, :photo_path
+    class Post
+      attr_reader :title, :photo
+
+      def self.call(*args)
+        new(*args).call
+      end
 
       def initialize(options = {})
         @title = options[:title]
-        @name = options[:name]
-        @description = options[:description]
-        @photo_path = options[:photo_path]
+        @photo = File.open(options[:photo_path])
       end
 
       def call
-        client.put_picture(File.open('test.jpg'), message: title)
+        client.put_picture(photo, message: title)
       end
 
       def client
