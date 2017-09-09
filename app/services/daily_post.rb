@@ -8,7 +8,7 @@ class DailyPost
   end
 
   def initialize(provider)
-    data = Social::FetchData.call
+    data = Social::DataBuilder.call
     @image = Image::Generate.call data
     @provider = provider
   end
@@ -25,6 +25,6 @@ class DailyPost
   end
 
   def facebook(image)
-    Social::Facebook::Post.call(title: HASH_TAG, photo_path: image.path)
+    # Social::Facebook::Post.call(title: HASH_TAG, photo_path: image.path)
   end
 end

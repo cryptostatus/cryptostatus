@@ -1,11 +1,7 @@
 module Image
   class Destroy
-    def self.call(*args)
-      new(*args).call
-    end
-
-    def initialize(image)
-      File.delete(image)
+    def self.call(image)
+      File.delete(image.path)
     end
   end
 end

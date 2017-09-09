@@ -34,8 +34,9 @@ module Image
       generated_image.combine_options do |image|
         image.font(font_family)
         image.pointsize(font_size)
-        text_coords.each do |text, coords|
-          image.draw "text #{coords} '#{text}'"
+        text_coords.each do |text, data|
+          image.fill(data[1])
+          image.draw "text #{data[0]} '#{text}'"
         end
       end
     end
