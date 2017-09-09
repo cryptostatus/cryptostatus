@@ -19,6 +19,7 @@ module Cryptostatus
     end
 
     config.autoload_paths += Dir[File.join(Rails.root, 'lib', 'responders', '*.rb')].each { |l| require l }
+    config.autoload_paths += Dir[File.join(Rails.root, 'queries', '*.rb')].each { |l| require l }
     config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
   end
 end
