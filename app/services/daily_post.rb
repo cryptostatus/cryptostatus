@@ -25,6 +25,7 @@ class DailyPost
   end
 
   def facebook(image)
+    # TODO waiting for approve
     # Social::Facebook::Post.call(title: HASH_TAG, photo_path: image.path)
   end
 end
