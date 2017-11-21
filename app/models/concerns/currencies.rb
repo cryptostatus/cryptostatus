@@ -27,7 +27,8 @@ module Currencies
       DCR: 19,
       SJCX: 20,
       SC: 21,
-      GNT: 22
+      GNT: 22,
+      BCH: 23
     }
   end
 end
