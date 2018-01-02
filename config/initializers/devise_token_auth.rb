@@ -1,4 +1,5 @@
 DeviseTokenAuth.setup do |config|
+  config.default_confirm_success_url = ENV['CLIENT_BALANCES']
   # By default the authorization headers will change after each request. The
   # client is responsible for keeping track of the changing tokens. Change
   # this to false to prevent the Authorization header from changing after
@@ -28,23 +29,22 @@ DeviseTokenAuth.setup do |config|
   # Uncomment to enforce current_password param to be checked before all
   # attribute updates. Set it to :password if you want it to be checked only if
   # password is updated.
-  # config.check_current_password_before_update = :attributes
-
+  config.check_current_password_before_update = :current_password
   # By default we will use callbacks for single omniauth.
   # It depends on fields like email, provider and uid.
   # config.default_callbacks = true
 
   # Makes it possible to change the headers names
-  # config.headers_names = {:'access-token' => 'access-token',
-  #                        :'client' => 'client',
-  #                        :'expiry' => 'expiry',
-  #                        :'uid' => 'uid',
-  #                        :'token-type' => 'token-type' }
+  config.headers_names = {
+    'access-token': 'token',
+    'client': 'client-id',
+    'expiry': 'expiry',
+    'uid': 'uid',
+    'token-type': 'token-type'
+  }
 
   # By default, only Bearer Token authentication is implemented out of the box.
   # If, however, you wish to integrate with legacy Devise authentication, you can
   # do so by enabling this flag. NOTE: This feature is highly experimental!
   # config.enable_standard_devise_support = false
-
-  config.default_confirm_success_url = ENV.fetch('DOMAIN')
 end
