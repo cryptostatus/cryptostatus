@@ -25,7 +25,6 @@ module Currencies
       GAME: 17,
       ARDR: 18,
       DCR: 19,
-      SJCX: 20,
       SC: 21,
       GNT: 22,
       BCH: 23
