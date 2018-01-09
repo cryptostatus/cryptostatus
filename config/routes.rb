@@ -18,10 +18,13 @@ Rails.application.routes.draw do
         token_validations:  'api/v1/overrides/token_validations',
         registrations:      'api/v1/overrides/registrations',
         sessions:           'api/v1/overrides/sessions',
-        omniauth_callbacks: 'api/v1/overrides/omniauth_callbacks'
+        omniauth_callbacks: 'api/v1/overrides/omniauth_callbacks',
+        passwords:          'api/v1/overrides/passwords'
       }
 
       resources :balances, only: %i[index create update destroy]
     end
   end
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

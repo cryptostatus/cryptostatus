@@ -18,3 +18,4 @@
 .ruby-gemset
 
 spec/examples.txt
+vendor/bundle
