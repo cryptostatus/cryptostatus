@@ -31,8 +31,8 @@ module Api
 
         def create_auth_params
           @auth_params = {
-            'access-token': @token,
-            'client': @client_id,
+            'token': @token,
+            'client-id': @client_id,
             'uid': @resource.uid
           }
 
