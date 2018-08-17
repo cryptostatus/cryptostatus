@@ -34,7 +34,6 @@ gem 'omniauth-facebook', '~> 4.0.0'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'mini_magick', '~> 4.8'
 gem 'twitter', '~> 6.1'
-gem 'koala', '~> 3.0'
 gem 'sidekiq-scheduler', '~> 2.1.8'
 
 group :development, :test do
