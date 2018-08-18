@@ -3,11 +3,9 @@
 describe CurrencyTracker do
   let(:prices) do
     {
-      'BTC' => [
-        0.01,
-        0.02,
-        0.03
-      ]
+      'BTC' => {
+        'USD' => 0.01
+      }
     }
   end
 
@@ -23,7 +21,7 @@ describe CurrencyTracker do
       currency = Currency.last
 
       expect(currency.name).to eq('BTC')
-      expect(currency.price).to eq(0.03)
+      expect(currency.price).to eq(0.01)
     end
   end
 end

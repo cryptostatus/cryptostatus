@@ -6,7 +6,6 @@ machine:
     PG_USERNAME: ''
     PG_PASSWORD: ''
     MAILER_SENDER: 'no-reply@cryptostat.us'
-    LIONSHARE_INSTANCE: 'https://api.lionshare.capital/api'
 deployment:
   production:
     branch: master

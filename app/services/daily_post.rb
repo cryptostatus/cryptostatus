@@ -23,9 +23,4 @@ class DailyPost
   def twitter(image)
     Social::Twitter::Post.call(message: HASH_TAG, photo_path: image.path)
   end
-
-  def facebook(image)
-    # TODO waiting for approve
-    # Social::Facebook::Post.call(title: HASH_TAG, photo_path: image.path)
-  end
 end

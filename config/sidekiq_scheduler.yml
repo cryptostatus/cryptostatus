@@ -5,7 +5,3 @@ daily_twitter_post_worker:
   every: '12h'
   class: DailyPostWorker
   args: twitter
-history_cleanup_worker:
-  every: '12h'
-  class: HistoryCleanupWorker
-
