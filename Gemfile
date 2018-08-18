@@ -35,6 +35,7 @@ gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'mini_magick', '~> 4.8'
 gem 'twitter', '~> 6.1'
 gem 'sidekiq-scheduler', '~> 2.1.8'
+gem 'cryptocompare', '~> 0.14.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -3,11 +3,9 @@
 describe CurrencyTracker do
   let(:prices) do
     {
-      'BTC' => [
-        0.01,
-        0.02,
-        0.03
-      ]
+      'BTC' => {
+        'USD' => 0.01
+      }
     }
   end
 

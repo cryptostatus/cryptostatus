@@ -3,13 +3,13 @@
 class CurrencyTracker < Rectify::Command
   def call
     Currency.names.keys.each do |name|
-      Currency.create(name: name, price: prices[name].last)
+      Currency.create(name: name, price: prices[name].values.first)
     end
   end
 
   private
 
   def prices
-    @prices ||= Lionshare::Client.new.prices.get['data']
+    @prices ||= Cryptocompare::Price.find(Currency.names.keys, ['USD'])
   end
 end
