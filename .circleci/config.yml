@@ -1,0 +1,49 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4.2-node
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PG_USERNAME: circleci-postgres
+          PG_PASSWORD: ""
+          RAILS_ENV: test
+      - image: circleci/postgres:9.5-alpine
+        environment:
+          POSTGRES_USER: circleci-postgres
+          POSTGRES_DB: cryptostatus_test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - cryptostatus-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - cryptostatus-bundle-v2-
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+
+      - save_cache:
+          key: cryptostatus-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Database Setup
+          command: bin/rails db:schema:load --trace
+
+      - run:
+          name: Run Rspec
+          command: bundle exec rspec
+
+      - store_test_results:
+          path: test_results
