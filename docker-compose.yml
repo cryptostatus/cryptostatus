@@ -1,0 +1,38 @@
+version: '3.1'
+services:
+  app: &app
+    build: .
+    links:
+      - db
+      - redis
+    volumes:
+      # Add link to your ssh key
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa
+      # Persist installed gems
+      - bundle_cache:/bundle
+      - .:/cryptostatus
+    tty: true
+    stdin_open: true
+
+  db:
+    image: postgres:9.6
+    ports:
+      - 5424
+
+  web:
+    <<: *app
+    command: bin/rails server --port 3000 --binding 0.0.0.0
+    ports:
+      - '3000:3000'
+
+  redis:
+    image: redis:3.2-alpine
+    ports:
+      - '6379:6379'
+
+  sidekiq:
+    <<: *app
+    command: sidekiq -C config/sidekiq.yml
+
+volumes:
+  bundle_cache:

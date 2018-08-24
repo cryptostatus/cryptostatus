@@ -1,7 +1,7 @@
 lock '3.7.2'
 
 set :application, 'cryptostatus'
-set :repo_url, 'git@github.com:kirillshevch/cryptostatus.git'
+set :repo_url, 'git@github.com:cryptostatus/cryptostatus.git'
 
 set :use_sudo, false
 set :deploy_via, :copy
@@ -10,7 +10,7 @@ set :keep_releases, 2
 set :log_level, :debug
 set :pty, false
 
-set :rvm1_ruby_version, 'ruby-2.4.1'
+set :rvm1_ruby_version, 'ruby-2.4.4'
 set :rvm1_map_bins, %w(rake gem bundle ruby rails sidekiq sidekiqctl whenever)
 
 set :rvm_type, :user
